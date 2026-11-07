@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: homepage loads
+ok 1 - homepage loads
+  ---
+  duration_ms: 35.057202
+  type: 'test'
+  ...
+# Subtest: content has schedule, hosts, announcements
+ok 2 - content has schedule, hosts, announcements
+  ---
+  duration_ms: 3.694316
+  type: 'test'
+  ...
+# Subtest: invalid request rejected
+ok 3 - invalid request rejected
+  ---
+  duration_ms: 5.637229
+  type: 'test'
+  ...
+# Subtest: valid song request stored
+ok 4 - valid song request stored
+  ---
+  duration_ms: 4.445295
+  type: 'test'
+  ...
+# Subtest: unknown path returns 404
+ok 5 - unknown path returns 404
+  ---
+  duration_ms: 2.664687
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 149.364844

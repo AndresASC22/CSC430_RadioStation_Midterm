@@ -1,0 +1,188 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <meta name="description" content="Waveform Radio student website: listen to live radio, explore shows and hosts, and submit song requests.">
+  <title>Waveform Radio | Listen Live</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#home" aria-label="Waveform Radio home">
+      <span class="logoicon">◉</span> WAVEFORM <small>RADIO</small>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#hosts">Hosts</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <span class="tag">STUDENT DEMO</span>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="heroinner">
+        <p class="eyebrow">YOUR SOUND. YOUR STATION.</p>
+
+        <h1>
+          Good music.<br>
+          <em>Great company.</em>
+        </h1>
+
+        <p class="lede">
+          Your place for fresh sounds, familiar voices, and stories
+          worth sharing. Tune in and stay connected.
+        </p>
+
+        <div class="player">
+          <div class="disc" aria-hidden="true">♫</div>
+
+          <div class="playinfo">
+            <strong>Listen Live — 106.7 Lite FM</strong>
+            <span id="streamStatus">Live radio player powered by iHeartRadio</span>
+          </div>
+
+          <span class="livebadge">LIVE RADIO</span>
+        </div>
+
+        <div class="radio-embed">
+          <iframe
+            title="106.7 Lite FM live radio player from iHeartRadio"
+            allow="autoplay"
+            width="100%"
+            height="200"
+            src="https://www.iheart.com/live/1067-lite-fm-1477/?embed=true"
+            loading="eager">
+          </iframe>
+        </div>
+
+        <p class="streamnote" id="streamNote">
+          Live radio is provided by 106.7 Lite FM through iHeartRadio.
+          This third-party broadcast is separate from the fictional
+          Waveform Radio station and its sample schedule.
+        </p>
+      </div>
+
+      <div class="heroart" aria-hidden="true">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="arttext">ON<br>AIR<span>✦</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="schedule">
+      <div class="sectionhead">
+        <div>
+          <p class="eyebrow">DON'T MISS A BEAT</p>
+          <h2>Show schedule</h2>
+        </div>
+        <p>
+          Find your next favorite show.
+          All times are station-local and illustrative.
+        </p>
+      </div>
+
+      <div id="scheduleList" class="showgrid"></div>
+    </section>
+
+    <section class="section tinted" id="hosts">
+      <div class="sectionhead">
+        <div>
+          <p class="eyebrow">MEET THE VOICES</p>
+          <h2>Our hosts</h2>
+        </div>
+        <p>The people behind the playlists and conversations.</p>
+      </div>
+
+      <div id="hostList" class="hostgrid"></div>
+    </section>
+
+    <section class="section" id="news">
+      <div class="sectionhead">
+        <div>
+          <p class="eyebrow">LATEST FROM THE STATION</p>
+          <h2>Announcements</h2>
+        </div>
+      </div>
+
+      <div id="newsList" class="newsgrid"></div>
+    </section>
+
+    <section class="section contact tinted" id="contact">
+      <div>
+        <p class="eyebrow">WE'RE LISTENING</p>
+
+        <h2>
+          Say hello.<br>
+          <em>Request a song.</em>
+        </h2>
+
+        <p>
+          Send the team a message or tell us what you'd love to hear.
+          This student prototype stores submissions locally on the server.
+          Requests are not sent to the external radio station.
+        </p>
+      </div>
+
+      <form id="contactForm">
+        <label for="name">Your name</label>
+        <input
+          id="name"
+          name="name"
+          required
+          minlength="2"
+          maxlength="80"
+          autocomplete="name"
+          placeholder="Your name">
+
+        <label for="email">Email address</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder="you@example.com">
+
+        <label for="type">I'm sending</label>
+        <select id="type" name="type">
+          <option value="song request">A song request</option>
+          <option value="message">A message</option>
+        </select>
+
+        <label for="message">Message / song request</label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          minlength="3"
+          maxlength="1000"
+          rows="4"
+          placeholder="Tell us what you'd like to hear…"></textarea>
+
+        <button type="submit">Send message →</button>
+
+        <p id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <strong>◉ WAVEFORM RADIO</strong>
+    <span>
+      CSC430 · Team Knicks in 5 · Educational demonstration ·
+      Fictional station and sample content
+    </span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
