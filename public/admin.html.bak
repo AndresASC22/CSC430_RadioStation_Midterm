@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <title>Admin Dashboard | Waveform Radio</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/auth.css">
+  <link rel="stylesheet" href="/schedule-admin.css">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="/" aria-label="Waveform Radio home">
+      <span class="logoicon">◉</span> WAVEFORM <small>RADIO</small>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/account.html">Account</a>
+      <a href="/admin.html" aria-current="page">Admin</a>
+    </nav>
+    <span class="tag">STAFF AREA</span>
+  </header>
+
+  <main class="admin-shell">
+    <p class="eyebrow">STATION OPERATIONS</p>
+    <h1>Admin <em>dashboard.</em></h1>
+    <p class="auth-description">Manage registered accounts and broadcast schedules.</p>
+    <p id="adminStatus" class="auth-message" role="status" aria-live="polite">Checking your access…</p>
+
+    <section id="adminContent" class="admin-panel" hidden>
+      <div class="admin-heading">
+        <div>
+          <h2>Registered accounts</h2>
+          <p class="auth-muted">Displays up to 50 latest accounts. Password hashes and session tokens are never shown.</p>
+        </div>
+        <button id="refreshUsers" type="button" class="auth-outline">Refresh</button>
+      </div>
+      <div class="admin-table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th scope="col">ID</th><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Status</th></tr>
+          </thead>
+          <tbody id="usersBody"></tbody>
+        </table>
+      </div>
+      <a href="/account.html" class="auth-back">← Back to your account</a>
+
+    <section id="scheduleManagement" class="admin-panel schedule-management">
+      <div class="admin-heading">
+        <div><h2>Broadcast schedule</h2><p class="auth-muted">Changes appear on the public homepage after refresh. Times are station-local.</p></div>
+        <div><button id="refreshSchedule" type="button" class="auth-outline">Refresh</button><button id="newScheduleShow" type="button" class="auth-primary">Add show</button></div>
+      </div>
+      <p id="scheduleStatus" class="auth-message" role="status" aria-live="polite"></p>
+      <div id="scheduleShows" class="schedule-show-list"></div>
+      <div id="scheduleEditor" class="schedule-editor" hidden>
+        <h3 id="scheduleFormTitle">New show</h3>
+        <form id="scheduleForm">
+          <label for="scheduleTitle">Show title</label><input id="scheduleTitle" name="title" required minlength="2" maxlength="120">
+          <label for="scheduleHost">Host</label><input id="scheduleHost" name="host" required minlength="2" maxlength="120">
+          <label for="scheduleGenre">Genre</label><input id="scheduleGenre" name="genre" maxlength="120">
+          <label>Weekly broadcast slots</label><div id="scheduleSlots"></div>
+          <button id="addScheduleSlot" type="button" class="auth-outline">+ Add day/time slot</button>
+          <div class="schedule-editor-actions"><button id="saveSchedule" type="submit" class="auth-primary">Save schedule</button><button id="cancelScheduleEdit" type="button" class="auth-outline">Cancel</button></div>
+        </form>
+      </div>
+    </section>
+    </section>
+
+    <p id="accessDenied" class="auth-message" hidden>
+      You must be signed in as an administrator to view account data.
+      <a href="/account.html">Go to sign in</a>.
+    </p>
+  </main>
+
+  <footer>
+    <strong>◉ WAVEFORM RADIO</strong>
+    <span>CSC430 · Authorized staff demonstration</span>
+  </footer>
+  <script src="/admin.js" defer></script>
+  <script src="/schedule-admin.js" defer></script>
+</body>
+</html>

@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { URL } = require('node:url');
 const { handleAuth } = require('./auth');
+const { handleSchedule, getPublicShows } = require('./schedule');
 const PORT = Number(process.env.PORT || 3000);
 const ROOT = path.join(__dirname, 'public');
 const DATA = path.join(__dirname, 'data', 'requests.json');
@@ -24,11 +25,18 @@ const announcements = [
 function json(res,status,data){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(data));}
 function handle(req,res){
  const u = new URL(req.url,'http://localhost');
+ if (u.pathname === '/api/admin/schedule' || u.pathname.startsWith('/api/admin/schedule/')) {
+  void handleSchedule(req, res, u.pathname);
+  return;
+ }
  if (u.pathname.startsWith('/api/auth/') || u.pathname === '/api/admin/users') {
   void handleAuth(req, res, u.pathname);
   return;
  }
- if(req.method==='GET' && u.pathname==='/api/content') return json(res,200,{shows,hosts,announcements,streamUrl:process.env.RADIO_STREAM_URL||null,streamConfigured:!!process.env.RADIO_STREAM_URL});
+ if(req.method==='GET' && u.pathname==='/api/content') {
+  void getPublicShows().then(showsFromDb => json(res,200,{shows:showsFromDb,hosts,announcements,streamUrl:process.env.RADIO_STREAM_URL||null,streamConfigured:!!process.env.RADIO_STREAM_URL})).catch(err => { console.error('Public schedule load failed:', err); json(res,503,{error:'Station content temporarily unavailable.'}); });
+  return;
+ }
  if(req.method==='POST' && u.pathname==='/api/requests'){
   let body='';req.on('data',chunk=>{body+=chunk;if(body.length>10000)req.destroy();});
   return req.on('end',()=>{let data;try{data=JSON.parse(body);}catch{return json(res,400,{error:'Invalid JSON'});}

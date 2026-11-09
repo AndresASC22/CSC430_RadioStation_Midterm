@@ -214,4 +214,4 @@ async function handleAuth(req, res, pathname) {
   }
 }
 
-module.exports = { handleAuth };
+module.exports = { handleAuth, sessionUser, requireSameOrigin };

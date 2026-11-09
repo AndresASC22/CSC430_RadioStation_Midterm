@@ -1,0 +1,10 @@
+/* Separate management areas within the existing authenticated admin panel. */
+.admin-tab-panel[hidden] { display: none !important; }
+.admin-tabs { display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #343847; margin: 8px 0 26px; }
+.admin-tab { appearance: none; cursor: pointer; background: transparent; border: 0; border-bottom: 3px solid transparent; color: #adb1c0; font: inherit; font-weight: 750; padding: 13px 18px; }
+.admin-tab:hover { color: #f6f5f2; }
+.admin-tab.is-active { border-bottom-color: #c6f46c; color: #c6f46c; }
+.admin-tab:focus-visible { outline: 3px solid #c6f46c; outline-offset: -3px; }
+#scheduleTab .schedule-management { margin-top: 0; }
+@media (max-width: 550px) { .admin-tab { flex: 1; padding: 12px 9px; font-size: 13px; } }
+

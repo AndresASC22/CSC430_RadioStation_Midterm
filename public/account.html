@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131c">
+  <title>Account | Waveform Radio</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/auth.css">
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="/" aria-label="Waveform Radio home">
+      <span class="logoicon">◉</span> WAVEFORM <small>RADIO</small>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="/#home">Home</a>
+      <a href="/#schedule">Schedule</a>
+      <a href="/#hosts">Hosts</a>
+      <a href="/#news">News</a>
+      <a href="/#contact">Contact</a>
+      <a href="/account.html" aria-current="page">Account</a>
+    </nav>
+    <span class="tag">STUDENT DEMO</span>
+  </header>
+
+  <main class="auth-shell">
+    <div class="auth-layout">
+      <section class="auth-intro" aria-labelledby="accountTitle">
+        <p class="eyebrow">YOUR STATION. YOUR SPACE.</p>
+        <h1 id="accountTitle">Stay in<br><em>the loop.</em></h1>
+        <p class="auth-description">Create a listener account, or sign in to your existing account. Station administrators can access their dashboard after signing in.</p>
+        <div class="auth-accent" aria-hidden="true">♫</div>
+      </section>
+
+      <section class="auth-card" aria-label="Account access">
+        <p id="accountStatus" class="auth-message" role="status" aria-live="polite"></p>
+
+        <div id="authForms">
+          <div class="auth-tabs" aria-label="Account options">
+            <button id="showLogin" class="auth-tab is-active" type="button" aria-pressed="true">Sign in</button>
+            <button id="showRegister" class="auth-tab" type="button" aria-pressed="false">Register</button>
+          </div>
+
+          <form id="loginForm" class="auth-form">
+            <h2>Welcome back.</h2>
+            <p class="auth-muted">Use your Waveform Radio account.</p>
+            <label for="loginEmail">Email address</label>
+            <input id="loginEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" required placeholder="Your password">
+            <button class="auth-primary" type="submit">Sign in</button>
+          </form>
+
+          <form id="registerForm" class="auth-form" hidden>
+            <h2>Join the station.</h2>
+            <p class="auth-muted">All new accounts begin as listeners.</p>
+            <label for="registerName">Full name</label>
+            <input id="registerName" name="fullName" type="text" autocomplete="name" minlength="2" maxlength="120" required placeholder="Your name">
+            <label for="registerEmail">Email address</label>
+            <input id="registerEmail" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com">
+            <label for="registerPassword">Password</label>
+            <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="15" maxlength="128" required placeholder="At least 15 characters">
+            <p class="auth-help">Use a unique password of at least 15 characters.</p>
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="15" maxlength="128" required placeholder="Re-enter your password">
+            <button class="auth-primary" type="submit">Create listener account</button>
+          </form>
+        </div>
+
+        <div id="sessionPanel" class="auth-signed-in" hidden>
+          <p class="auth-kicker">SIGNED IN</p>
+          <h2 id="welcomeName">Welcome!</h2>
+          <p class="auth-muted" id="sessionEmail"></p>
+          <p class="auth-role">Role: <strong id="sessionRole"></strong></p>
+          <a href="/admin.html" class="auth-primary auth-link-button" id="adminDashboardLink" hidden>Open admin dashboard</a>
+          <button class="auth-outline" id="logoutButton" type="button">Log out</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <strong>◉ WAVEFORM RADIO</strong>
+    <span>CSC430 · Educational demonstration</span>
+  </footer>
+  <script src="/account.js" defer></script>
+</body>
+</html>

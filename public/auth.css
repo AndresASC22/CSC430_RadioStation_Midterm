@@ -1,0 +1,50 @@
+/* Account and admin pages; inherits the shared Waveform Radio palette. */
+.auth-shell { min-height: calc(100vh - 170px); display: grid; align-items: center; padding: 55px 7%; background: radial-gradient(circle at 14% 75%, #30354a 0, #171b28 36%, #10131c 85%); }
+.auth-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 480px); gap: clamp(35px, 6vw, 100px); align-items: center; max-width: 1250px; width: 100%; margin: auto; }
+.auth-intro h1 { margin-bottom: 23px; }
+.auth-description, .auth-muted { color: #b4b7c4; line-height: 1.7; }
+.auth-description { max-width: 510px; }
+.auth-accent { width: 92px; height: 92px; display: grid; place-items: center; border-radius: 50%; background: #c6f46c; color: #10131c; font-size: 52px; font-weight: 900; margin-top: 35px; }
+.auth-card, .admin-panel { background: #1d2130; border: 1px solid #343847; border-radius: 16px; padding: clamp(23px, 4vw, 39px); box-shadow: 0 18px 45px #080b1580; }
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #10131c; border-radius: 10px; padding: 5px; margin-bottom: 29px; }
+.auth-tab { appearance: none; border: none; border-radius: 8px; background: transparent; color: #bbc0ce; padding: 11px 12px; cursor: pointer; font-weight: 700; }
+.auth-tab.is-active { background: #343b50; color: #c6f46c; }
+.auth-form { display: flex; flex-direction: column; gap: 9px; }
+.auth-form h2, .auth-signed-in h2 { font-size: clamp(27px, 3vw, 36px); letter-spacing: -1px; margin: 0; }
+.auth-form .auth-muted { margin: 0 0 13px; }
+.auth-form label { font-size: 13px; font-weight: 700; margin-top: 10px; }
+.auth-form input { width: 100%; border-radius: 9px; border: 1px solid #52596d; background: #252b3b; color: #fff; padding: 13px 14px; }
+.auth-form input::placeholder { color: #adb2c0; }
+.auth-help { margin: -3px 0 0; color: #adb2c0; font-size: 12px; }
+.auth-primary, .auth-outline { display: inline-block; border-radius: 9px; padding: 13px 18px; text-align: center; cursor: pointer; font-weight: 800; }
+.auth-primary { border: 1px solid #c6f46c; background: #c6f46c; color: #151b17; margin-top: 15px; }
+.auth-primary:hover { background: #d8ff93; }
+.auth-outline { background: transparent; color: #c6f46c; border: 1px solid #596d47; }
+.auth-outline:hover { background: #303b2c; }
+.auth-primary:disabled, .auth-outline:disabled { opacity: 0.6; cursor: wait; }
+.auth-message { color: #c6f46c; font-size: 14px; line-height: 1.5; min-height: 0; margin: 0 0 15px; }
+.auth-message:empty { display: none; }
+.auth-message.is-error { color: #ffb3b3; }
+.auth-signed-in { display: flex; flex-direction: column; gap: 13px; }
+.auth-kicker { font-size: 12px; color: #c6f46c; font-weight: 800; letter-spacing: 2px; }
+.auth-signed-in .auth-muted { overflow-wrap: anywhere; margin: 0; }
+.auth-role { color: #b4b7c4; }
+.auth-role strong { color: #c6f46c; }
+.auth-link-button { margin: 0; }
+.admin-shell { min-height: calc(100vh - 160px); padding: 65px 7%; max-width: 1200px; margin: auto; }
+.admin-shell > h1 { font-size: clamp(40px, 5vw, 70px); }
+.admin-panel { margin: 30px 0; }
+.admin-heading { display: flex; justify-content: space-between; align-items: start; gap: 18px; margin-bottom: 24px; }
+.admin-heading h2 { font-size: clamp(25px, 3vw, 36px); letter-spacing: -1px; }
+.admin-heading .auth-muted { margin-bottom: 0; font-size: 13px; }
+.admin-table-scroll { overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; min-width: 590px; }
+.admin-table th, .admin-table td { text-align: left; padding: 12px; border-bottom: 1px solid #343847; font-size: 13px; overflow-wrap: anywhere; }
+.admin-table th { color: #c6f46c; text-transform: uppercase; font-size: 11px; letter-spacing: 1px; }
+.admin-table td { color: #ebebf3; }
+.auth-back { display: inline-block; margin-top: 25px; color: #c6f46c; }
+#accessDenied { margin-top: 24px; }
+#accessDenied a { text-decoration: underline; }
+[hidden] { display: none !important; }
+@media (max-width: 850px) { .auth-layout { grid-template-columns: 1fr; max-width: 560px; } .auth-intro h1 { font-size: clamp(48px, 8vw, 68px); } .auth-shell { padding: 45px 5%; } }
+@media (max-width: 550px) { .auth-shell { padding: 35px 5%; } .auth-accent { display: none; } .admin-shell { padding: 45px 5%; } .admin-heading { flex-direction: column; } }
